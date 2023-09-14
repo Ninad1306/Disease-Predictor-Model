@@ -1,1 +1,4 @@
-pandas sklearn flask numpy 
+pandas 
+sklearn 
+flask 
+numpy 
