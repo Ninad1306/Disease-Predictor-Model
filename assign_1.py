@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from flask import Flask, request, jsonify
+import joblib
 import numpy as np
 
 app = Flask(__name__)
@@ -30,9 +31,5 @@ logreg_cv.fit(X_train, Y_train)
 def predict_disease():
     return jsonify({"disease": logreg_cv.predict(pd.DataFrame([request.get_json()]).values)[0]})
 
-
 if __name__ == '__main__':
-    create_app = create_app()
-    create_app.run()
-else:
-    gunicorn_app = create_app()
+    app.run()
