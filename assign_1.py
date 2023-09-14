@@ -4,7 +4,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from flask import Flask, request, jsonify
-import joblib
 import numpy as np
 
 app = Flask(__name__)
@@ -33,4 +32,7 @@ def predict_disease():
 
 
 if __name__ == '__main__':
-    app.run()
+    create_app = create_app()
+    create_app.run()
+else:
+    gunicorn_app = create_app()
