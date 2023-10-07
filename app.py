@@ -48,4 +48,4 @@ def predict_disease():
     # return jsonify({"disease": svc_model.predict(pd.DataFrame([request.get_json()]).values)[0], "score": '1'})
         return jsonify({"disease": svc_model.predict(pd.DataFrame([data]).values)[0], "score": '1'})
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
